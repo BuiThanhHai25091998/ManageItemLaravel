@@ -33,8 +33,7 @@ class PageController extends Controller
         $sanpham = Product::where('id',$req->id)->first();
         $sp_cungloai = Product::where('id_type',$sanpham->id_type)->paginate(3);
         $sp_moi = Product::where('new',1)->paginate(4);
-        $sp_banchay = BillDetail::where('quatity','<>',1)->get();
-    	return view('page.chitiet_sanpham',compact('sanpham','sp_cungloai','sp_moi','sp_banchay'));
+    	return view('page.chitiet_sanpham',compact('sanpham','sp_cungloai','sp_moi'));
     }
 
     public function getLienHe()
